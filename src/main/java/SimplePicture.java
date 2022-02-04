@@ -360,8 +360,21 @@ public class SimplePicture implements DigitalPicture
     
    return pixelArray;
  }
- 
- /**
+
+    public Pixel[][] setPixels(Pixel[][] mat)
+    {
+        int width = getWidth();
+        int height = getHeight();
+        Pixel[][] pixelArray = new Pixel[height][width];
+
+        // loop through height rows from top to bottom
+        for (int row = 0; row < height; row++)
+            System.arraycopy(mat[row], 0, pixelArray[row], 0, width);
+
+        return pixelArray;
+    }
+
+    /**
   * Method to load the buffered image with the passed image
   * @param image  the image to use
   */
